@@ -1,0 +1,10 @@
+<div class="container mt-4">
+    <h2>Buscar Usuarios en GitHub</h2>
+    <form (submit)="searchUsers()">
+      <input type="text" [(ngModel)]="query" name="searchQuery" class="form-control" placeholder="Ingrese un nombre de usuario" required minlength="4">
+      <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+    </form>
+    <app-error-handler *ngIf="errorMessage" [message]="errorMessage"></app-error-handler>
+  </div>
+  <app-user-list *ngIf="users.length > 0" [users]="users"></app-user-list>
+  

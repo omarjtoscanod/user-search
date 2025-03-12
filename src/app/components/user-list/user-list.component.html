@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h3>Resultados</h3>
+
+  <ul class="list-group">
+    <li *ngFor="let user of users" class="list-group-item d-flex align-items-center">
+      <img [src]="user.avatar_url" class="rounded-circle me-2" width="40" height="40" alt="Avatar">
+      <a [routerLink]="['/user', user.login]" class="flex-grow-1">{{ user.login }}</a>
+      <span class="badge bg-secondary">{{ user.id }}</span>
+    </li>
+  </ul>
+
+  <div class="mt-4">
+    <h3>Seguidores de los Usuarios</h3>
+    <ngx-charts-bar-vertical
+      [results]="chartData"
+      [scheme]="'cool'"
+      [gradient]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      xAxisLabel="Usuarios"
+      yAxisLabel="Seguidores"
+      [barPadding]="20"
+      [yScaleMax]="50000">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
+
+  
